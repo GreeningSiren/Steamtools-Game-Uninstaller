@@ -1,0 +1,2 @@
+requests>=2.32.3
+pyfiglet>=1.0.4
