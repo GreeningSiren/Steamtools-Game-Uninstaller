@@ -64,7 +64,13 @@ To create a standalone executable, use the provided build script:
 build.bat
 ```
 
-Or manually run the PyInstaller command:
+Or manually install PyInstaller and run:
+
+```bash
+pip install pyinstaller
+```
+
+Then run the PyInstaller command:
 
 ```bash
 pyinstaller main.py -n "Steamtools Game Uninstaller" -y --collect-all pyfiglet -F
@@ -116,7 +122,7 @@ steamtools-uninstaller/
 
 ## Credits
 
-Created by **GreeningSiren** and **𝓝1𝓰𝓱𝓽𝓜𝓪𝓻𝓮**
+Created by **GreeningSiren** and **𝓝1𝓰𝓱𝓽𝓜𝓪𝓻𝓮** (nikola_vslv)
 
 Contact on Discord for more information.
 
@@ -134,7 +140,7 @@ This project is provided as-is for educational and utility purposes. Use at your
 
 2. **"Game still installed" error**:
    - Uninstall the game from Steam first
-   - Verify the game doesn't appear in your Steam library
+   - Verify the game doesn't appear in your Steam library as installed
 
 3. **Permission errors**:
    - Run as administrator if needed
