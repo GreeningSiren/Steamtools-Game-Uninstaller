@@ -14,7 +14,6 @@ The application provides a user-friendly GUI to select games and safely remove a
 
 - **Game Discovery**: Automatically finds all games that have Steamtools files
 - **Steam API Integration**: Fetches real game names from Steam's API for better identification
-- **Safe Deletion**: Checks if games are still installed in Steam before allowing deletion
 - **User-Friendly Interface**: Simple GUI built with Tkinter
 - **File Preview**: Shows exactly which files will be deleted before confirmation
 
@@ -53,8 +52,6 @@ Simply run `Steamtools Game Uninstaller.exe`
 2. **Select Game**: Choose a game from the list
 3. **Find Files**: Click "Find Files" to see what will be deleted
 4. **Delete Files**: Click "Delete All Files" to remove the selected files
-
-**Important**: Make sure the game is uninstalled from Steam before using this tool!
 
 ## Building Executable
 
@@ -101,7 +98,6 @@ steamtools-uninstaller/
 
 ## Safety Features
 
-- **Installation Check**: Prevents deletion if the game is still installed in Steam
 - **File Preview**: Shows all files that will be deleted before confirmation
 - **Error Handling**: Graceful error handling for file operations
 - **Steam Restart Warning**: Reminds users to restart Steam after cleanup
@@ -109,7 +105,6 @@ steamtools-uninstaller/
 ## Warnings
 
 ⚠️ **Important Warnings**:
-- Always uninstall the game from Steam before using this tool
 - Restart Steam after using this tool to ensure changes take effect
 - This tool modifies Steam configuration files - use at your own risk
 - Always backup important data before using file deletion tools
@@ -138,15 +133,11 @@ This project is provided as-is for educational and utility purposes. Use at your
    - Ensure Steamtools was used previously
    - Check if Steam is installed in the default location
 
-2. **"Game still installed" error**:
-   - Uninstall the game from Steam first
-   - Verify the game doesn't appear in your Steam library as installed
-
-3. **Permission errors**:
+2. **Permission errors**:
    - Run as administrator if needed
    - Ensure Steam is closed during cleanup
 
-4. **API errors**:
+3. **API errors**:
    - Check internet connection
    - Steam API might be temporarily unavailable
 
