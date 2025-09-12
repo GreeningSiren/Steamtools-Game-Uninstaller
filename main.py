@@ -88,7 +88,7 @@ def check_if_game_installed(game_id):
     manifest_path = f"C:\\Program Files (x86)\\Steam\\steamapps\\appmanifest_{game_id}.acf"
     if os.path.exists(manifest_path):
         print(f"Game {game_id} is still installed.")
-        messagebox.showerror("Error", f"Game {game_id} is still installed in Steam. Please uninstall it first.")
+        # messagebox.showerror("Error", f"Game {game_id} is still installed in Steam. Please uninstall it first.")
         return
     print(f"Game {game_id} is not installed in Steam.")
 def delete_files():
@@ -100,7 +100,10 @@ def delete_files():
         except Exception as e:
             messagebox.showerror("Error", f"Couldn't delete {file}: {e}")
     messagebox.showinfo("Success", "Selected files deleted!")
-    messagebox.showwarning("Warning", "Please restart Steam to ensure all changes take effect.")
+    # messagebox.showwarning("Warning", "Please restart Steam to ensure all changes take effect.")
+    result = messagebox.askyesno("Restart Steam", "Do you want to restart Steam now?")
+    if result:
+        restart_steam()
     game_listbox.delete(selected_index)
     del games[selected_index[0]]
     listbox.delete(0, tk.END)
@@ -113,6 +116,10 @@ def get_game_name(app_id):
     if data[str(app_id)]["success"]:
         return data[str(app_id)]["data"]["name"]
     return None
+
+def restart_steam():
+    os.system("taskkill /f /im steam.exe")
+    os.startfile("C:\\Program Files (x86)\\Steam\\Steam.exe")
 
 # def open_game_folder():
 #     selected_game = game_listbox.get(tk.ACTIVE)
@@ -134,7 +141,11 @@ tk.Button(root, text="Find Files", command=find_files).pack()
 listbox = tk.Listbox(root, width=60, height=15, selectmode=tk.NONE)
 listbox.pack()
 
-tk.Button(root, text="Delete All Files", command=delete_files).pack()
+# tk.Button(root, text="Delete All Files", command=delete_files).pack()
+frame = tk.Frame(root)
+frame.pack()
+tk.Button(frame, text="Delete All Files", command=delete_files).pack(side=tk.LEFT)
+tk.Button(frame, text="Restart Steam", command=restart_steam).pack(side=tk.LEFT)
 
 # open_game_folder_button = tk.Button(root, text="Open Game Folder", command=open_game_folder, state=tk.DISABLED)
 # open_game_folder_button.pack()
@@ -146,6 +157,6 @@ game_names = {}
 print(Figlet(font='doom').renderText('Steamtools Game Uninstaller'))
 print("Tool made by GreeningSiren and N1ghtMare.")
 messagebox.showinfo("Credits", "Created by GreeningSiren and 𝓝1𝓰𝓱𝓽𝓜𝓪𝓻𝓮. Contact on Discord for more information.")
-messagebox.showwarning("Warning", "Please delete the selected game from Steam first to avoid issues.")
+# messagebox.showwarning("Warning", "Please delete the selected game from Steam first to avoid issues.")
 
 root.mainloop()
